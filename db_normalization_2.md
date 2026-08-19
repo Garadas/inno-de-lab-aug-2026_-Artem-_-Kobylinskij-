@@ -94,11 +94,9 @@ PK_Groups: PRIMARY KEY (id)
 | id_teacher | INTEGER | FK, NOT NULL |
 | id_subject | INTEGER | FK, NOT NULL |
 | id_classroom | INTEGER | FK, NOT NULL |
-| Day_of_week | ENUM | NOT NULL |
+| Lesson_date | DATE | NOT NULL |
 | Class_number | SMALLINT | NOT NULL |
 | Lesson_type | ENUM | NOT NULL |
-| Week_type | ENUM | NOT NULL |
-| Semestr | SMALLINT | NOT NULL |
 
 **Constraints:**
 
@@ -110,13 +108,11 @@ FK_Schedule_Teachers: FOREIGN KEY (id_teacher) REFERENCES Teachers(id)
 FK_Schedule_Subjects: FOREIGN KEY (id_subject) REFERENCES Subjects(id)
 FK_Schedule_Classrooms: FOREIGN KEY (id_classroom) REFERENCES Classrooms(id)
 
-UK_id_group: UNIQUE (id_group, Day_of_week, Week_type, Class_number, Semestr)
-UK_id_teacher: UNIQUE (id_teacher, Day_of_week, Week_type, Class_number, Semestr)
-UK_id_classroom: UNIQUE (id_classroom, Day_of_week, Week_type, Class_number, Semestr)
+UK_id_group: UNIQUE (id_group, Lesson_date, Class_number)
+UK_id_teacher: UNIQUE (id_teacher, Lesson_date, Class_number)
+UK_id_classroom: UNIQUE (id_classroom, Lesson_date, Class_number)
 
-CHK_Day_of_week: CHECK (Day_of_week IN ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'))
 CHK_Lesson_type: CHECK (Lesson_type IN ('lecture', 'seminar', 'lab', 'section'))
-CHK_Week_type: CHECK (Week_type IN ('even', 'odd', 'both'))
 ```
 
 ---
