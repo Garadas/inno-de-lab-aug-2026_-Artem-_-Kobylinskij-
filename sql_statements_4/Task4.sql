@@ -1,5 +1,6 @@
 UPDATE employees 
-SET salary = salary * 1.1; --увеличение для всех на 10%
+SET salary = salary * 1.1
+WHERE department = 'HR'; --увеличение для всех на 10%
 
 UPDATE employees 
 SET department = 'Senior IT'
