@@ -20,6 +20,7 @@ for node_name, cpu_load, ram_usage, status in system_telemetry:
 
 print(f"Активные узлы в сети: {active_names}")
 
+#метрики
 total_active = len(active_names)
 avg_cpu = sum(cpu_loads) / total_active if total_active > 0 else 0.0
 max_ram = max(ram_usages) if ram_usages else 0
